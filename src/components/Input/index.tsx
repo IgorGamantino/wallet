@@ -1,15 +1,15 @@
-import { View,TextInputProps} from "react-native";
+import { TextInputProps } from "react-native";
 import { ContainerInput, InputStyles, Label } from "./styles";
 
 interface InputProps extends TextInputProps {
-    label?: string
+  label?: string;
 }
 
-export function Input ({label, ...rest}:InputProps) {
-    return (
-        <ContainerInput>
-        <Label>{label}</Label>
-        <InputStyles  {...rest}/>
-        </ContainerInput>
-    )
+export function Input({ label, ...rest }: InputProps) {
+  return (
+    <ContainerInput>
+      <Label>{label}</Label>
+      <InputStyles {...rest} />
+    </ContainerInput>
+  );
 }
