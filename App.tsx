@@ -1,11 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { Button } from './src/components/Button';
+import { ThemeProvider } from 'styled-components/native';
+import theme from './src/theme';
+import { Input } from './src/components/Input';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <ThemeProvider theme={theme}>
+      <Button text='hello world' />
+      <Button text='hello world' variant='green' />
+      <Input  label='Insira seu numero' />
       <StatusBar style="auto" />
+      </ThemeProvider>
     </View>
   );
 }
@@ -13,7 +21,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    gap: 4,
+    backgroundColor: 'green',
+    paddingHorizontal: 16,
     alignItems: 'center',
     justifyContent: 'center',
   },
