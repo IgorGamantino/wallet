@@ -822,6 +822,11 @@
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/pt-sans-caption/-/pt-sans-caption-0.2.3.tgz#2572db38f226215f5532fdfd513e46af97c5fd7a"
   integrity sha512-Ri7iQtTEaRdJBXENINhFWj5e9iqxL4WHX3kVKRfZByp2c974YrvspEdripjXhBy8JFkwlxZ4218Ay32C2nq3EQ==
 
+"@expo-google-fonts/pt-sans@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/pt-sans/-/pt-sans-0.2.3.tgz#db5d67bafbf063c573ec667ac59ac1afd07d5625"
+  integrity sha512-imLq3aja2UOiQFCYmu57oDSKHp523oegEjoG5mDvOSeshOeVtfoZhzl9+94Rg92poW6Fhm8VQXbCMJLrJWMXfg==
+
 "@expo/bunyan@^4.0.0":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@expo/bunyan/-/bunyan-4.0.1.tgz#ab9e17e36c71c704a0ce72168378a487368da736"
@@ -6768,6 +6773,11 @@ react-freeze@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/react-freeze/-/react-freeze-1.0.4.tgz#cbbea2762b0368b05cbe407ddc9d518c57c6f3ad"
   integrity sha512-r4F0Sec0BLxWicc7HEyo2x3/2icUTrRmDjaaRyzzn+7aDyFZliszMDOgLVwSnQnYENOlL1o569Ze2HZefk8clA==
+
+react-hook-form@^7.53.0:
+  version "7.53.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.53.0.tgz#3cf70951bf41fa95207b34486203ebefbd3a05ab"
+  integrity sha512-M1n3HhqCww6S2hxLxciEXy2oISPnAzxY7gvwVPrtlczTM/1dDadXgUxDpHMrMTblDOcm/AXtXxHwZ3jpg1mqKQ==
 
 "react-is@^16.12.0 || ^17.0.0 || ^18.0.0", react-is@^18.0.0:
   version "18.3.1"

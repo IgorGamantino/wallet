@@ -1,15 +1,18 @@
 import { Touchable, ButtonText } from "./styles";
 import { TouchableOpacityProps } from "react-native";
+import { ButtonProps } from "./types";
 
-interface ButtonProps extends TouchableOpacityProps {
-  text: string;
-  variant?: "blue" | "green";
-}
-
-export function Button({ text, variant = "blue", ...rest }: ButtonProps) {
+export function Button({
+  text,
+  variant = "blue",
+  disabled,
+  ...rest
+}: ButtonProps) {
   return (
-    <Touchable variant={variant} {...rest}>
-      <ButtonText variant={variant}>{text}</ButtonText>
+    <Touchable disabled={disabled} variant={variant} {...rest}>
+      <ButtonText disabled={disabled} variant={variant}>
+        {text}
+      </ButtonText>
     </Touchable>
   );
 }
