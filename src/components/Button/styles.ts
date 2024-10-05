@@ -12,6 +12,7 @@ export const Touchable = styled.TouchableOpacity<ButtonPropsStyles>`
   justify-content: center;
   align-items: center;
   border-radius: 12px;
+  height: 55px;
 `;
 
 export const ButtonText = styled.Text<ButtonPropsStyles>`
