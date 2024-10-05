@@ -1,10 +1,10 @@
 /* eslint-disable import/no-unresolved */
-import { Header } from "@components/Header";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { CardRegistration } from "@screens/CardRegistration";
 import { CardSaveSuccess } from "@screens/CardSaveSuccess";
 import { Home } from "@screens/Home";
+import { MyCard } from "@screens/MyCard";
 const Stack = createNativeStackNavigator();
 
 export function Routes() {
@@ -28,6 +28,14 @@ export function Routes() {
         <Stack.Screen
           name="CardSaveSuccess"
           component={CardSaveSuccess}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="MyCart"
+          component={MyCard}
           options={{
             headerShown: false,
           }}

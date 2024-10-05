@@ -6,6 +6,7 @@ export default {
     white: "#FFF",
     gray: "#3F3F3F",
     gray_disabled: "#BBB",
+    grey_light: "#EEEEEE",
     black: "#111111",
   },
 };

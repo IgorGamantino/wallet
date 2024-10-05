@@ -11,7 +11,10 @@ export function Home() {
     <Background>
       <Container>
         <Typography>Wallet Test</Typography>
-        <Button text="meus cartões" />
+        <Button
+          text="meus cartões"
+          onPress={() => navigation.navigate("MyCart")}
+        />
         <Button
           variant="green"
           text="cadastrar cartão"

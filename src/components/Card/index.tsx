@@ -2,10 +2,16 @@ import { Typography } from "@components/Typography";
 import { Container, ContentNumber } from "./styles";
 
 import BulletIcon from "@assets/svg/bollets.svg";
+import { ViewProps } from "react-native";
+import { ColorOptions } from "src/@types/colors";
 
-export function Card() {
+interface CardProps extends ViewProps {
+  color?: ColorOptions;
+}
+
+export function Card({ color = "green_light", ...rest }: CardProps) {
   return (
-    <Container>
+    <Container {...rest} color={color}>
       <Typography fontSize={18}>Black Card</Typography>
       <Typography fontSize={16}>João Carlos Pereira</Typography>
       <ContentNumber>
