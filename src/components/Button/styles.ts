@@ -19,6 +19,7 @@ export const ButtonText = styled.Text<ButtonPropsStyles>`
   font-size: 18px;
   font-weight: 400;
   line-height: 20px;
+  font-family: "PTSansCaption_400Regular";
 
   color: ${({ theme, variant }) =>
     variant === "blue" ? theme.colors.white : theme.colors.blue_dark};
