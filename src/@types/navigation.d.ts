@@ -1,6 +1,7 @@
 export interface Screens {
   Home: undefined;
   CardRegistration: undefined;
+  CardSaveSuccess: undefined;
 }
 
 export declare global {

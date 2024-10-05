@@ -7,6 +7,8 @@ import { Button } from "@components/Button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { paySchema } from "./schemaValidation";
+import { api } from "@services/api";
+import { useNavigation } from "@react-navigation/native";
 type FormData = {
   cardNumber: string;
   name: string;
@@ -23,8 +25,20 @@ export function CardRegistration() {
     resolver: yupResolver(paySchema),
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log("log");
+  const navigation = useNavigation();
+
+  const onSubmit = async (data: FormData) => {
+    const body = {
+      number: data.cardNumber,
+      cvv: data.cvv,
+      name: data.name,
+      expiryDate: data.expiryDate,
+    };
+
+    // await api.post("/cards", body);
+
+    navigation.navigate("CardSaveSuccess");
+
     console.log(data);
   };
   return (

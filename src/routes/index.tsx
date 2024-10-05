@@ -3,6 +3,7 @@ import { Header } from "@components/Header";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { CardRegistration } from "@screens/CardRegistration";
+import { CardSaveSuccess } from "@screens/CardSaveSuccess";
 import { Home } from "@screens/Home";
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,13 @@ export function Routes() {
         <Stack.Screen
           name="CardRegistration"
           component={CardRegistration}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="CardSaveSuccess"
+          component={CardSaveSuccess}
           options={{
             headerShown: false,
           }}
