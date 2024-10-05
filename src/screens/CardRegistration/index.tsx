@@ -5,7 +5,8 @@ import { ContainerInput, ContainerRegister, ContainerRow } from "./styles";
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
 import { useForm } from "react-hook-form";
-
+import { yupResolver } from "@hookform/resolvers/yup";
+import { paySchema } from "./schemaValidation";
 type FormData = {
   cardNumber: string;
   name: string;
@@ -17,8 +18,10 @@ export function CardRegistration() {
   const {
     control,
     handleSubmit,
-    formState: { isValid },
-  } = useForm<FormData>();
+    formState: { isValid, errors },
+  } = useForm<FormData>({
+    resolver: yupResolver(paySchema),
+  });
 
   const onSubmit = (data: FormData) => {
     console.log("log");
@@ -36,12 +39,15 @@ export function CardRegistration() {
           creditCard
           rules={{ required: true }}
           name="cardNumber"
+          keyboardType="numeric"
+          errorMessage={errors.cardNumber?.message}
           maxLength={19}
           label="número do cartão"
         />
         <Input
           control={control}
           rules={{ required: true }}
+          errorMessage={errors.name?.message}
           name="name"
           label="nome do titular do cartão"
         />
@@ -49,8 +55,11 @@ export function CardRegistration() {
         <ContainerRow>
           <ContainerInput>
             <Input
+              maxLength={5}
               control={control}
               rules={{ required: true }}
+              placeholder="04/26"
+              errorMessage={errors.expiryDate?.message}
               name="expiryDate"
               label="vencimento"
             />
@@ -59,6 +68,10 @@ export function CardRegistration() {
             <Input
               control={control}
               rules={{ required: true }}
+              secureTextEntry
+              maxLength={3}
+              errorMessage={errors.cvv?.message}
+              keyboardType="numeric"
               name="cvv"
               label="código de segurança"
             />

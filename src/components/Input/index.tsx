@@ -1,13 +1,19 @@
-import { TextInputProps } from "react-native";
+import { Text, TextInputProps } from "react-native";
 import { ContainerInput, CustomContainer, InputStyles, Label } from "./styles";
 
 import { Control, Controller, RegisterOptions } from "react-hook-form";
-import Entypo from "@expo/vector-icons/Entypo";
+
+import MasterLogo from "@assets/svg/master.svg";
+import VisaLogo from "@assets/svg/visa.svg";
+import AmericanLogo from "@assets/svg/american-express.svg";
+import { getCardType } from "@utils/getTypeCard";
+
 interface InputProps extends TextInputProps {
   label?: string;
   control: Control<any>;
   name: string;
   creditCard?: boolean;
+  errorMessage?: string;
   rules:
     | Omit<
         RegisterOptions<any, string>,
@@ -21,6 +27,7 @@ export function Input({
   control,
   rules,
   name,
+  errorMessage,
   creditCard,
   ...rest
 }: InputProps) {
@@ -33,23 +40,22 @@ export function Input({
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <CustomContainer>
-            {creditCard && (
-              <Entypo
-                name="credit-card"
-                style={{ marginRight: 10 }}
-                size={24}
-                color="black"
-              />
-            )}
+            {creditCard && getCardType(value)}
+
             <InputStyles
-              // placeholder="First name"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              {...rest}
             />
           </CustomContainer>
         )}
       />
+      {errorMessage && (
+        <Text style={{ fontSize: 12, color: "#f53d2f", marginTop: 4 }}>
+          {errorMessage}
+        </Text>
+      )}
     </ContainerInput>
   );
 }
