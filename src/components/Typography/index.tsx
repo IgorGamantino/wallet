@@ -1,12 +1,15 @@
-import { ReactNode } from "react";
 import { Text } from "./styles";
+import { TypographyProps } from "./types";
 
-import { TextProps } from "react-native";
-
-interface TypographyProps extends TextProps {
-  children: ReactNode;
-}
-
-export function Typography({ children, ...rest }: TypographyProps) {
-  return <Text {...rest}>{children}</Text>;
+export function Typography({
+  children,
+  color = "white",
+  fontSize,
+  ...rest
+}: TypographyProps) {
+  return (
+    <Text {...rest} color={color} fontSize={fontSize}>
+      {children}
+    </Text>
+  );
 }
