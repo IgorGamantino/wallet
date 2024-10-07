@@ -3,6 +3,7 @@ export interface Screens {
   CardRegistration: undefined;
   CardSaveSuccess: undefined;
   MyCart: undefined;
+  AnimationCard: undefined;
 }
 
 export declare global {

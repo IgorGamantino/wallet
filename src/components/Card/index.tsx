@@ -5,7 +5,6 @@ import BulletIcon from "@assets/svg/bollets.svg";
 import { ViewProps } from "react-native";
 import { ColorOptions } from "src/@types/colors";
 type CardPropsData = {
-  id: string;
   number: string;
   cvv: string;
   name: string;

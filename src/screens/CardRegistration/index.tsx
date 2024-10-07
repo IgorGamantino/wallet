@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { Background } from "@components/Background";
 import { Header } from "@components/Header";
 import { Typography } from "@components/Typography";
@@ -9,6 +10,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { paySchema } from "./schemaValidation";
 import { api } from "@services/api";
 import { useNavigation } from "@react-navigation/native";
+import { useAppDispatch } from "@store/index";
+import { setCardCreateSuccess } from "@store/card/slice";
 type FormData = {
   cardNumber: string;
   name: string;
@@ -22,24 +25,30 @@ export function CardRegistration() {
     handleSubmit,
     formState: { isValid, errors },
   } = useForm<FormData>({
-    resolver: yupResolver(paySchema),
+    // resolver: yupResolver(paySchema),
   });
+
+  const dispatch = useAppDispatch();
 
   const navigation = useNavigation();
 
   const onSubmit = async (data: FormData) => {
-    const body = {
-      number: data.cardNumber,
-      cvv: data.cvv,
-      name: data.name,
-      expiryDate: data.expiryDate,
-    };
+    try {
+      const body = {
+        number: data.cardNumber,
+        cvv: data.cvv,
+        name: data.name,
+        expiryDate: data.expiryDate,
+      };
 
-    // await api.post("/cards", body);
+      // await api.post("/cards", body);
 
-    navigation.navigate("CardSaveSuccess");
+      // dispatch(setCardCreateSuccess(body));
 
-    console.log(data);
+      navigation.navigate("CardSaveSuccess");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <Background>
@@ -51,16 +60,37 @@ export function CardRegistration() {
         <Input
           control={control}
           creditCard
-          rules={{ required: true }}
+          // rules={{ required: true }}
           name="cardNumber"
           keyboardType="numeric"
           errorMessage={errors.cardNumber?.message}
           maxLength={19}
           label="número do cartão"
+          mask={[
+            /\d/,
+            /\d/,
+            /\d/,
+            /\d/,
+            " ",
+            /\d/,
+            /\d/,
+            /\d/,
+            /\d/,
+            " ",
+            /\d/,
+            /\d/,
+            /\d/,
+            /\d/,
+            " ",
+            /\d/,
+            /\d/,
+            /\d/,
+            /\d/,
+          ]}
         />
         <Input
           control={control}
-          rules={{ required: true }}
+          // rules={{ required: true }}
           errorMessage={errors.name?.message}
           name="name"
           label="nome do titular do cartão"
@@ -71,17 +101,18 @@ export function CardRegistration() {
             <Input
               maxLength={5}
               control={control}
-              rules={{ required: true }}
+              // rules={{ required: true }}
               placeholder="04/26"
               errorMessage={errors.expiryDate?.message}
               name="expiryDate"
               label="vencimento"
+              mask={[/\d/, /\d/, "/", /\d/, /\d/]}
             />
           </ContainerInput>
           <ContainerInput>
             <Input
               control={control}
-              rules={{ required: true }}
+              // rules={{ required: true }}
               secureTextEntry
               maxLength={3}
               errorMessage={errors.cvv?.message}
@@ -94,7 +125,7 @@ export function CardRegistration() {
 
         <Button
           text="avançar"
-          disabled={!isValid}
+          // disabled={!isValid}
           onPress={handleSubmit(onSubmit)}
         />
       </ContainerRegister>

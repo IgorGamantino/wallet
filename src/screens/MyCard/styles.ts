@@ -10,13 +10,13 @@ export const Content = styled.View`
   align-items: center;
   justify-content: center;
   padding: 0 16px;
-  position: "absolute";
+  position: absolute;
   bottom: 0;
   top: -120;
 `;
 
 export const TouchableCardList = styled.View`
-  position: "absolute";
+  position: absolute;
   top: -20%;
   width: 100%;
 `;
@@ -30,5 +30,8 @@ export const ScrollViewCard = styled.View`
 
 export const ButtonPressable = styled.Pressable`
   margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 40px;
 `;

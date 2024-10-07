@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-
+import MaskInput from "react-native-mask-input";
 export const ContainerInput = styled.View`
   text-align: start;
   width: 100%;
@@ -25,7 +25,7 @@ export const CustomContainer = styled.View`
   padding: 0 16px;
 `;
 
-export const InputStyles = styled.TextInput`
+export const InputStyles = styled(MaskInput)`
   width: 100%;
   height: 45px;
   font-size: 16px;

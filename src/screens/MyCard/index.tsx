@@ -1,5 +1,5 @@
 import { Card } from "@components/Card";
-import { ButtonPressable, Container, Content, ScrollViewCard } from "./styles";
+import { ButtonPressable, Container, ScrollViewCard } from "./styles";
 import { HeaderMyCard } from "@screens/Home/components/Header";
 import { TouchableWithoutFeedback } from "react-native";
 import {
@@ -10,6 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import { api } from "@services/api";
 import { Typography } from "@components/Typography";
+import { Button } from "@components/Button";
 
 interface CardProps {
   id: string;
@@ -90,9 +91,15 @@ export function MyCard() {
           </TouchableWithoutFeedback>
         ))}
 
-        <ButtonPressable>
-          <Typography fontSize={14}>usar este cartao</Typography>
-        </ButtonPressable>
+        {cardSelected === null && (
+          <ButtonPressable>
+            <Typography fontSize={14}>usar este cartão</Typography>
+          </ButtonPressable>
+        )}
+
+        {cardSelected !== null && (
+          <Button style={{ marginTop: 24 }} text="pagar com este cartão" />
+        )}
       </ScrollViewCard>
     </Container>
   );

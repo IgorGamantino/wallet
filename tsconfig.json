@@ -22,6 +22,9 @@
       "@screens/*": [
         "./src/screens/*"
       ],
+      "@store/*": [
+        "./src/store/*"
+      ],
     }
   }
 }

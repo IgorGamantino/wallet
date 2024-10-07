@@ -1,20 +1,18 @@
-import { Text, TextInputProps } from "react-native";
+import { Text } from "react-native";
 import { ContainerInput, CustomContainer, InputStyles, Label } from "./styles";
 
 import { Control, Controller, RegisterOptions } from "react-hook-form";
+import { MaskInputProps } from "react-native-mask-input";
 
-import MasterLogo from "@assets/svg/master.svg";
-import VisaLogo from "@assets/svg/visa.svg";
-import AmericanLogo from "@assets/svg/american-express.svg";
 import { getCardType } from "@utils/getTypeCard";
 
-interface InputProps extends TextInputProps {
+interface InputProps extends MaskInputProps {
   label?: string;
   control: Control<any>;
   name: string;
   creditCard?: boolean;
   errorMessage?: string;
-  rules:
+  rules?:
     | Omit<
         RegisterOptions<any, string>,
         "disabled" | "valueAsNumber" | "valueAsDate" | "setValueAs"

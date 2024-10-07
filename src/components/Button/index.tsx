@@ -1,5 +1,4 @@
 import { Touchable, ButtonText } from "./styles";
-import { TouchableOpacityProps } from "react-native";
 import { ButtonProps } from "./types";
 
 export function Button({
