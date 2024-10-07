@@ -6,20 +6,7 @@
       "cvv": "317",
       "name": "John Doe",
       "expiryDate": "03/28"
-    },
-    {
-      "id": "1bce",
-      "number": "21212231231231",
-      "cvv": "222",
-      "name": "23123123",
-      "expiryDate": "04/25"
-    },
-    {
-      "id": "d06a",
-      "number": "223123213231312",
-      "cvv": "222",
-      "name": "IGOR g",
-      "expiryDate": "03/27"
     }
+
   ]
 }

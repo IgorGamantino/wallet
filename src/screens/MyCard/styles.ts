@@ -7,10 +7,12 @@ export const Container = styled.View`
 `;
 
 export const Content = styled.View`
-  justify-content: center;
   align-items: center;
-  flex: 1;
+  justify-content: center;
   padding: 0 16px;
+  position: "absolute";
+  bottom: 0;
+  top: -120;
 `;
 
 export const TouchableCardList = styled.View`
@@ -19,4 +21,14 @@ export const TouchableCardList = styled.View`
   width: 100%;
 `;
 
-export const ScrollViewCard = styled.View``;
+export const ScrollViewCard = styled.View`
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 0 16px;
+`;
+
+export const ButtonPressable = styled.Pressable`
+  margin-top: 10px;
+  height: 40px;
+`;

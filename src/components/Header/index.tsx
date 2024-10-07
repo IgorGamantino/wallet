@@ -8,13 +8,15 @@ import {
 
 import ArrowLeft from "@assets/svg/arrowLeft.svg";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
 
 export function Header() {
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
   return (
     <ContainerHeader style={{ paddingTop: insets.top }}>
       <ContainerText>
-        <ButtonArrowLeft>
+        <ButtonArrowLeft onPress={() => navigation.goBack()}>
           <ArrowLeft />
         </ButtonArrowLeft>
       </ContainerText>
