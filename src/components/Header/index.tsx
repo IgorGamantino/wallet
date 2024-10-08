@@ -15,18 +15,11 @@ export function Header() {
   const navigation = useNavigation();
   return (
     <ContainerHeader style={{ paddingTop: insets.top }}>
-      <ContainerText>
-        <ButtonArrowLeft onPress={() => navigation.goBack()}>
-          <ArrowLeft />
-        </ButtonArrowLeft>
-      </ContainerText>
-
+      <ButtonArrowLeft onPress={() => navigation.goBack()}>
+        <ArrowLeft />
+      </ButtonArrowLeft>
       <Container>
-        <Typography
-          color="blue_light"
-          fontSize={22}
-          style={{ textAlign: "center" }}
-        >
+        <Typography color="blue_light" fontSize={22}>
           cadastro
         </Typography>
       </Container>
