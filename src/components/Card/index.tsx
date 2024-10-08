@@ -24,7 +24,9 @@ export function Card({ color = "green_light", data, ...rest }: CardProps) {
         <BulletIcon />
         <BulletIcon />
         <BulletIcon />
-        <Typography fontSize={14}>{data?.number.substring(12, 16)}</Typography>
+        <Typography fontSize={14}>
+          {data?.number.replaceAll(" ", "").substring(12, 16)}
+        </Typography>
       </ContentNumber>
       <Typography fontSize={14}>Validade {data?.expiryDate}</Typography>
     </Container>

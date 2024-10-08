@@ -48,7 +48,7 @@ export function MyCard() {
       transform: [
         { translateY: withTiming(translateYSecond.value, { duration: 100 }) },
       ],
-      marginTop: withTiming(-120, {
+      marginTop: withTiming(-140, {
         duration: 1000,
       }),
     };
@@ -58,7 +58,7 @@ export function MyCard() {
     transform: [
       { translateY: withTiming(translateY.value, { duration: 100 }) },
     ],
-    marginTop: withTiming(-120, {
+    marginTop: withTiming(-140, {
       duration: 1000,
     }),
   }));
@@ -98,7 +98,10 @@ export function MyCard() {
         )}
 
         {cardSelected !== null && (
-          <Button style={{ marginTop: 24 }} text="pagar com este cartão" />
+          <Button
+            style={{ marginTop: 24, marginBottom: 24 }}
+            text="pagar com este cartão"
+          />
         )}
       </ScrollViewCard>
     </Container>

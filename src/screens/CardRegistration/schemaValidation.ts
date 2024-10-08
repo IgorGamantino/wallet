@@ -1,7 +1,10 @@
 import * as yup from "yup";
 
 export const paySchema = yup.object({
-  cardNumber: yup.string().required("O numero do cartão e obrigatório"),
+  cardNumber: yup
+    .string()
+    .min(19, "Deve ser um numero de cartão valido")
+    .required("O numero do cartão e obrigatório"),
   expiryDate: yup
     .string()
     .required("Data de expiração e obrigatório")

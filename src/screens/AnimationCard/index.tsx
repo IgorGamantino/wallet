@@ -65,7 +65,7 @@ export const AnimationCard = () => {
     if (focused) {
       setTimeout(() => {
         navigate("MyCart");
-      }, 5000);
+      }, 1000);
     }
   }, [focused, navigate]);
 

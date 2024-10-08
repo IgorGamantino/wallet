@@ -12,6 +12,7 @@ import { api } from "@services/api";
 import { useNavigation } from "@react-navigation/native";
 import { useAppDispatch } from "@store/index";
 import { setCardCreateSuccess } from "@store/card/slice";
+import { Alert } from "react-native";
 type FormData = {
   cardNumber: string;
   name: string;
@@ -23,9 +24,9 @@ export function CardRegistration() {
   const {
     control,
     handleSubmit,
-    formState: { isValid, errors },
+    formState: { errors, isDirty },
   } = useForm<FormData>({
-    // resolver: yupResolver(paySchema),
+    resolver: yupResolver(paySchema),
   });
 
   const dispatch = useAppDispatch();
@@ -41,13 +42,21 @@ export function CardRegistration() {
         expiryDate: data.expiryDate,
       };
 
-      // await api.post("/cards", body);
+      await api.post("/cards", body);
 
-      // dispatch(setCardCreateSuccess(body));
+      dispatch(setCardCreateSuccess(body));
 
       navigation.navigate("CardSaveSuccess");
     } catch (error) {
-      console.log(error);
+      Alert.alert(
+        "Error ao salvar o cartao",
+        "Deu erro ao tentar salvar seu cartao",
+        [
+          {
+            onPress: () => navigation.goBack(),
+          },
+        ],
+      );
     }
   };
   return (
@@ -60,7 +69,7 @@ export function CardRegistration() {
         <Input
           control={control}
           creditCard
-          // rules={{ required: true }}
+          rules={{ required: true }}
           name="cardNumber"
           keyboardType="numeric"
           errorMessage={errors.cardNumber?.message}
@@ -90,7 +99,7 @@ export function CardRegistration() {
         />
         <Input
           control={control}
-          // rules={{ required: true }}
+          rules={{ required: true }}
           errorMessage={errors.name?.message}
           name="name"
           label="nome do titular do cartão"
@@ -101,7 +110,7 @@ export function CardRegistration() {
             <Input
               maxLength={5}
               control={control}
-              // rules={{ required: true }}
+              rules={{ required: true }}
               placeholder="04/26"
               errorMessage={errors.expiryDate?.message}
               name="expiryDate"
@@ -112,7 +121,7 @@ export function CardRegistration() {
           <ContainerInput>
             <Input
               control={control}
-              // rules={{ required: true }}
+              rules={{ required: true }}
               secureTextEntry
               maxLength={3}
               errorMessage={errors.cvv?.message}
@@ -125,7 +134,7 @@ export function CardRegistration() {
 
         <Button
           text="avançar"
-          // disabled={!isValid}
+          disabled={!isDirty}
           onPress={handleSubmit(onSubmit)}
         />
       </ContainerRegister>
