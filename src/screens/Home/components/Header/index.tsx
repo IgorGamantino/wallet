@@ -25,7 +25,7 @@ export function HeaderMyCard() {
           elevation: 1,
         }}
       >
-        <Pressable onPress={() => navigation.goBack()}>
+        <Pressable onPress={() => navigation.navigate("Home")}>
           <Feather
             name="arrow-left"
             size={24}
